@@ -1,4 +1,5 @@
 # ec605-project-
-We want to write a small program that can provide people with advices about which cloth to wear when they want to attend some job interview acorrding to the content from tweets.We can offer people some good suggestions with the help of photoes other people posted on twitter.
-As a cloth company i can know which cloth is more popular and suitable for people who want to find a job so i can design more popular cloth accroding to these information and make more money.
-
+For students, it can be difficult to decide which clothes to wear when they are going to attend a interview since they don't much experience. They really need some good advice expecially the suggestion from someone who have attended the interview earlier.
+We want to write a small program that can provide people with advices about which cloth to wear when they want to attend some job interview acorrding to the content from tweets.We can offer people some good suggestions with the help of photoes other people posted on twitter.As the designer of this program i can benefit from advertisement because many company are willing to advertise there products here if we can have many users.Then we can compare the companies and only advertise for companies offering high quality  products at good prices, so everyone will benefit from it.
+As a student i will have a easy and quick access to suggestions about which clothes to wear when i want to attend an interview.
+As a company i can know which design is more popular and suitable for people who want to find a job so i can design some best sale clothes.
