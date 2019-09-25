@@ -15,7 +15,7 @@ some numbers.
 10.package the codes into a .exe file.
 
 
-![image](https://github.com/yueyue4737/19fallEC601MiniProject1Group16/blob/master/Untitled%20Diagram.png)
+![image](https://github.com/szyszy315/ec605-project-1/blob/master/Untitled%20Diagram.png)
 
 
 User story
