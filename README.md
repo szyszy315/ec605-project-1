@@ -35,3 +35,10 @@ My product is aimed to collect people's attitude toward some events such sports 
 attitude toward it with the help of google natural languague.Our customer will be some big companies which want the feedback of 
 the events they holded and many start-up companies which don't much experience and need some data to help them grow faster.And we
 can also help people when they want don't know which event planning company is better.
+MVP
+A product that can get people's attitude toward an event.
+patent analysis
+Our patent should be some event planning companies which want feedback from people in order to improve themselves.
+technology selection
+i use tweepy api because it offers us a easy and quick access to tweets, from which i can get information i need. And google natural language api is also necessary since it can help analyze tweets.i used tweepy.search because it can filter tweets with keywords.
+
