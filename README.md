@@ -1,4 +1,5 @@
 frameworks:
+
 1.discuss the topic of the project and the feasibility of it.
 2.discuss how can we design a product related to our topic.
 3.find the way to filter the information we need from twitter,should we find the information by user or keywords.
@@ -19,6 +20,7 @@ some numbers.
 
 
 User story
+
 As a event planning company i always want to improve the orgnization of some events.
 As a event planning company i always want to get feedback of some public events,such as a concert or a sports match,from the public.
 As a event planning company i don't want to spend much time analyzing tweets but still want to know people's attitude toward the event we orgnized.
@@ -31,14 +33,19 @@ As the content creator i can make money by saling our app or data and advertisin
 which companies can perform better.
 
 Mission
+
 My product is aimed to collect people's attitude toward some events such sports match and concert by analyzing and collecting people's
 attitude toward it with the help of google natural languague.Our customer will be some big companies which want the feedback of 
 the events they holded and many start-up companies which don't much experience and need some data to help them grow faster.And we
 can also help people when they want don't know which event planning company is better.
 MVP
+
 A product that can get people's attitude toward an event.
+
 patent analysis
 Our patent should be some event planning companies which want feedback from people in order to improve themselves.
+
 technology selection
+
 i use tweepy api because it offers us a easy and quick access to tweets, from which i can get information i need. And google natural language api is also necessary since it can help analyze tweets.i used tweepy.search because it can filter tweets with keywords.
 
