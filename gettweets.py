@@ -13,23 +13,24 @@ import json
 import tweepy
 import json
 import twitter_credentials
-
-def get_all_tweets(event):
+def get_all_tweets():
 #Twitter API credentials
     auth = tweepy.OAuthHandler(twitter_credentials.CONSUMER_KEY, twitter_credentials.CONSUMER_SECRET)
     auth.set_access_token(twitter_credentials.ACCESS_TOKEN, twitter_credentials.ACCESS_TOKEN_SECRET)
     api = tweepy.API(auth)
+#get the data we need according to name of event and the time that the event holded
+    event = input('please input the event:')
+    starttime = input('please input the time:')
 
     #initialize a list to hold all the tweepy Tweet
-
-    #keep grabbing tweets until there are no tweets left to grab
     searched_tweets = []
     last_id = -1
-    max_tweets = 10
+    max_tweets = 15
     while len(searched_tweets) < max_tweets:
         count = max_tweets - len(searched_tweets)
+#get tweets
         try:
-            new_tweets = api.search(q=event+ '-filter:retweets -filter:replies', count=count, max_id=str(last_id - 1),Since="2019-09-09",tweet_mode="extended",include_rts =False,exclude_replies=True,lang="en")
+            new_tweets = api.search(q=event+ '-filter:retweets -filter:replies', count=count, max_id=str(last_id - 1),Since=starttime,tweet_mode="extended",include_rts =False,exclude_replies=True,lang="en")
             if not new_tweets:
                 break
             searched_tweets.extend(new_tweets)
@@ -37,6 +38,7 @@ def get_all_tweets(event):
         except tweepy.TweepError as e:
             break
     print ("...{} tweets downloaded so far".format(len(searched_tweets)))
+#only save the text of tweets
     tweets = [[tweet.full_text] for tweet in searched_tweets]
     print(tweets)
     #write tweet objects to JSON
@@ -49,4 +51,4 @@ def get_all_tweets(event):
 
 if __name__ == '__main__':
     #pass in the username of the account you want to download
-    get_all_tweets("celtics")
+    get_all_tweets()
