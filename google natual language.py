@@ -6,10 +6,11 @@ import json
 import time
 import nltk
 from nltk.corpus import stopwords
-#use nltk to filter some commonly used word that i want to ignore
+
+#get words that most mentioned
 def most_frequent(List):
     unimportantwords =stopwords.words('english')
-    unimportantwords.extend(["It's","If"])
+    unimportantwords.extend(["It's","If",'today','I',''])
     count = {}
     for i in List:
         if i in unimportantwords:
@@ -19,8 +20,8 @@ def most_frequent(List):
         else :
             count[i] += 1
     word = sorted(count.items(),key = lambda x:x[1] ,reverse = True)
-    return word[0:5]
-
+    return word[1:4]
+#analyze sentiment
 def sentiment(content):
 
     client = language_v1.LanguageServiceClient()
@@ -35,6 +36,18 @@ def sentiment(content):
     sentiment = response.document_sentiment
     return(sentiment.score, sentiment.magnitude)
 
+def split(string):
+    st = []
+    sp = []
+    for i in string:
+        sp =i.split(' ')
+    for t in sp:
+        if (len(t)) > 10:
+            continue
+        else:
+            st.append(t)
+    return(st)
+
 if __name__ == '__main__':
 #get tweets
     tweets = []
@@ -44,10 +57,17 @@ if __name__ == '__main__':
     mag=0
     count = 0
     freq = []
+    positive = []
+    negative = []
 #get score and magnitude of google natural language
     for i in range(len(tweets)) :
         score += sentiment(tweets[i][0])[0]
         mag += sentiment(tweets[i][0])[1]
+#collect tweets with positive attitude and negative attitude
+        if sentiment(tweets[i][0])[0] > 0.2:
+            positive.append(tweets[i][0])
+        if sentiment(tweets[i][0])[0] < -0.2:
+            negative.append(tweets[i][0])
         count += 1
         tww = tweets[i][0].split(' ')
         for t in tww:
@@ -55,6 +75,12 @@ if __name__ == '__main__':
                 continue
             else:
                 freq.append(t)
+    pos = split(positive)
+    neg = split(negative)
+    posword = most_frequent(pos)
+    negword = most_frequent(neg)
+    print ('tweets with positive attitude mentioned ', posword)
+    print ('tweets with negative attitude mentioned ', negword)
     fre=[]
     fre.append(most_frequent(freq))
     print('the most mentioned word is ',fre)
@@ -68,7 +94,8 @@ if __name__ == '__main__':
         print ('neutral')
     elif score < 0.2 and score > -0.2 and mag > 2:
         print('mixed')
-    elif score <=0.2:
+    elif score <= - 0.2 and score > -0.5:
         print(' Negative')
     else: print('Clearly Negative')
     input('input anything to continue...')
+
